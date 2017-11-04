@@ -8,7 +8,8 @@ module.exports.find = (key, done) => {
 };
 
 module.exports.findByUserIdAndClientId = (userId, clientId, done) => {
-  for (let token of tokens) {
+  for (let key in tokens) {
+    var token = tokens[key];
     if (tokens[token].userId === userId && tokens[token].clientId === clientId) return done(null, token);
   }
   return done(new Error('Token Not Found'));

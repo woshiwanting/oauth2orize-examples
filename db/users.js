@@ -12,6 +12,20 @@ module.exports.findById = (id, done) => {
   return done(new Error('User Not Found'));
 };
 
+module.exports.findByUserId = (id, done) => {
+  for (let i = 0, len = users.length; i < len; i++) {
+    if (users[i].id === id) return done(null, users[i]);
+  }
+  return done(new Error('User Not Found'));
+};
+
+module.exports.findByClientId = (id, done) => {
+  for (let i = 0, len = users.length; i < len; i++) {
+    if (users[i].id === id) return done(null, users[i]);
+  }
+  return done(new Error('User Not Found'));
+};
+
 module.exports.findByUsername = (username, done) => {
   for (let i = 0, len = users.length; i < len; i++) {
     if (users[i].username === username) return done(null, users[i]);
